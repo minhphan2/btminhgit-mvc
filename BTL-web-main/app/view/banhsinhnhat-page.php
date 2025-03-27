@@ -1,27 +1,30 @@
+<!DOCTYPE html>
 <?php
 require_once "/xampp/htdocs/btminhgit-mvc/BTL-web-main/Connect/connection.php";
 require_once "/xampp/htdocs/btminhgit-mvc/BTL-web-main/app/model/ProductsModel.php";
-
-// Khởi tạo ProductsModel
 $productsModel = new ProductsModel($conn);
-$result = $productsModel->laySanpham();
-$result_bsn = $productsModel->laySanpham('BSN');
-$result_bne = $productsModel->laySanpham('BNE');
-$result_pkb = $productsModel->laySanpham('PKB');
+
+
+$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+$limit = 4; 
+$offset = ($page - 1) * $limit;
+
+$totalProducts = $productsModel->countSanpham('BSN');
+$totalPages = ceil($totalProducts / $limit);
+
+$result = $productsModel->laySanphamPhanTrang('BSN', $limit, $offset);
 ?>
-
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sản phẩm</title>
+    <title>Bánh sinh nhật</title>
     <link rel="icon" href="images/logo_cake_1-removebg-preview.png" type="image/x-icon"> <!--FAVICON-->
-    <link rel="stylesheet" href="./public/css/sanpham.css">
-    <link rel="stylesheet" href="./public/css/footer.css">
+    <link rel="stylesheet" href="./public/css/banhsinhnhat.css">
     <link rel="stylesheet" href="./public/css/header.css">
+    <link rel="stylesheet" href="./public/css/footer.css">
     <link rel="stylesheet" href="./public/css/root.css">
+    <link rel="stylesheet" href="./public/css/sanpham.css">
     <!-- link font logo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,92 +58,55 @@ $result_pkb = $productsModel->laySanpham('PKB');
     <div class="bookmark">
         <div class="content-bookmark">
             <div>
-                <h1>Sản Phẩm</h1>
-                <h3>HOT SALE</h3>
+                <h1 style="font-size: 100px;">Bánh sinh nhật</h1>
+                <h3 style="font-size: 22px;">Dành cho tiệc sinh nhật, hoặc bất kỳ khoảnh khắc nào <br>quan trọng của bạn.</h3>
             </div>
         </div>
     </div>
 
-    <!-- Danh sách sản phẩm -->
-    <div class="contaner-product-section-1">
-        <div class="phukien">
-            <div class="banh-widget">
-                <div class="widget-content">
-                    <h3>Bánh sinh nhật</h3>
-                    <a href="indexok.php?action=banhsinhnhat">Xem thêm</a>
-                </div>
-            </div>
-            <div class="banh-list">
-                <?php if ($result_bsn->num_rows > 0): ?>
-                    <?php while ($row = $result_bsn->fetch_assoc()): ?>
-                        <div class="product-container product-container-bne ">
-                            <a href="indexok.php?action=hienchitiet&id=<?php echo $row['MaSP']; ?>">
-                                <img src="<?php echo $row['HinhAnh']; ?>" alt="">
-                                <p class="product-name"><?php echo $row['TenSP']; ?></p>
-                                <p class="price"><?php echo $row['MoTa']; ?> <br> <?php echo number_format($row['Gia'], 0, ',', '.'); ?> ₫</p>
-                            </a>
-                        </div>
-                    <?php endwhile; ?>
-                <?php else: ?>
-                    <p>Không có sản phẩm nào.</p>
-                <?php endif; ?>
-            </div>
+    <!-- Bánh sinh nhật -->
+    <div class='banhsinhnhat'>
+        <div class='banh-list'>
+            <?php if ($result->num_rows > 0): ?>
+                <?php while ($row = $result->fetch_assoc()): ?>
+                    <div class='product-container' id='product-container'>
+                        <a href='indexok.php?action=hienchitiet&id=<?php echo $row['MaSP']; ?>'>
+                            <p class='product-name'><?php echo $row['TenSP']; ?></p>
+                            <p class='price'><?php echo $row['MoTa']; ?><br><?php echo number_format($row['Gia'], 0, ',', '.'); ?> ₫</p>
+                            <img src='./images/banhsinhnhat/<?php echo $row['HinhAnh']; ?>' alt=''>
+                        </a>
+                    </div>
+                <?php endwhile; ?>
+            <?php else: ?>
+                <p>Không có sản phẩm nào.</p>
+            <?php endif; ?>
         </div>
     </div>
 
-    <!-- Banh nua -->
-    <div class="contaner-product-section-2">
-        <div class="banhnua">
-            <div class="banh-widget">
-                <div class="widget-content">
-                    <h3>Bánh nửa Entremet</h3>
-                    <a href="indexok.php?action=banhnuae">Xem thêm</a>
-                </div>
-            </div>
-            <div class="banh-list">
-                <?php if ($result_bne->num_rows > 0): ?>
-                    <?php while ($row = $result_bne->fetch_assoc()): ?>
-                        <div class="product-container product-container-bne ">
-                            <a href="indexok.php?action=showProduct&id=<?php echo $row['MaSP']; ?>">
-                                <img src="<?php echo $row['HinhAnh']; ?>" alt="">
-                                <p class="product-name"><?php echo $row['TenSP']; ?></p>
-                                <p class="price"><?php echo $row['MoTa']; ?> <br> <?php echo number_format($row['Gia'], 0, ',', '.'); ?> ₫</p>
-                            </a>
-                        </div>
-                    <?php endwhile; ?>
-                <?php else: ?>
-                    <p>Không có sản phẩm nào.</p>
-                <?php endif; ?>
-            </div>
-        </div>
-    </div>
+    <nav class="page">
+    <ul class="page-numbers" id="pagination">
+        <?php if ($page > 1): ?>
+            <li><a href="?action=banhsinhnhat&page=<?php echo $page - 1; ?>">« Trước</a></li>
+        <?php endif; ?>
 
-    <!-- Phu kien-->
-    <div class="contaner-product-section-3">
-        <div class="phukien">
-            <div class="banh-widget">
-                <div class="widget-content">
-                    <h3>Phụ kiện bánh</h3>
-                    <a href="indexok.php?action=phukienbanh">Xem thêm</a>
-                </div>
-            </div>
-            <div class="banh-list">
-                <?php if ($result_pkb->num_rows > 0): ?>
-                    <?php while ($row = $result_pkb->fetch_assoc()): ?>
-                        <div class="product-container product-container-pkb ">
-                            <a href="indexok.php?action=showProduct&id=<?php echo $row['MaSP']; ?>">
-                                <img src="<?php echo $row['HinhAnh']; ?>" alt="">
-                                <p class="product-name"><?php echo $row['TenSP']; ?></p>
-                                <p class="price"><?php echo $row['MoTa']; ?> <br> <?php echo number_format($row['Gia'], 0, ',', '.'); ?> ₫</p>
-                            </a>
-                        </div>
-                    <?php endwhile; ?>
-                <?php else: ?>
-                    <p>Không có sản phẩm nào.</p>
-                <?php endif; ?>
-            </div>
-        </div>
-    </div>
+        <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+            <li>
+                <a href="?action=banhsinhnhat&page=<?php echo $i; ?>" 
+                   class="<?php echo ($i == $page) ? 'active' : ''; ?>">
+                   <?php echo $i; ?>
+                </a>
+            </li>
+        <?php endfor; ?>
+
+        <?php if ($page < $totalPages): ?>
+            <li><a href="?action=banhsinhnhat&page=<?php echo $page + 1; ?>">Tiếp »</a></li>
+        <?php endif; ?>
+    </ul>
+</nav>
+
+    <script src="././js/brand.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
     <!-- FOOTER -->
     <footer>
@@ -194,6 +160,33 @@ $result_pkb = $productsModel->laySanpham('PKB');
             </p>
         </div>
     </footer>
-    <script src="js/header.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        function loadProducts(page) {
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', `fetch_sanpham.php?page=${page}&loai=BSN`, true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    const response = JSON.parse(xhr.responseText);
+                    document.getElementById('product-container').innerHTML = response.html;
+                    document.getElementById('pagination').innerHTML = response.pagination;
+                }
+            };
+            xhr.send();
+        }
+
+        // Tải sản phẩm trang đầu tiên khi tải trang
+        loadProducts(1);
+
+        // Lắng nghe sự kiện click trên các nút phân trang
+        document.getElementById('pagination').addEventListener('click', function (e) {
+            if (e.target.tagName === 'A') {
+                e.preventDefault();
+                const page = e.target.getAttribute('data-page');
+                loadProducts(page);
+            }
+        });
+    });
+</script>
 </body>
 </html>

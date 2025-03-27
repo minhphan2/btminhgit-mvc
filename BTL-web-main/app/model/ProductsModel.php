@@ -7,12 +7,39 @@ class ProductsModel {
     }
 
     // Lấy tất cả sản phẩm
-    public function laySanpham() {
-        $sql = "SELECT * FROM sanpham";
-        $stmt = $this->conn->prepare($sql);
+    public function laySanpham($loaisp = null) {
+        if ($loaisp) {
+            $sql = "SELECT * FROM `sanpham` WHERE `LoaiSP` = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param("s", $loaisp);
+        } else {
+            $sql = "SELECT * FROM `sanpham`";
+            $stmt = $this->conn->prepare($sql);
+        }
+        
         $stmt->execute();
         return $stmt->get_result();
     }
+    
+
+
+public function countSanpham($loaiSP) {
+    $sql = "SELECT COUNT(*) AS total FROM sanpham WHERE LoaiSP = ?";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param("s", $loaiSP);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    return $row['total'];
+}
+
+public function laySanphamPhanTrang($loaiSP, $limit, $offset) {
+    $sql = "SELECT * FROM sanpham WHERE LoaiSP = ? LIMIT ? OFFSET ?";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param("sii", $loaiSP, $limit, $offset);
+    $stmt->execute();
+    return $stmt->get_result();
+}
 
     // Lấy sản phẩm theo ID
     public function laySanphamTheoID($MaSP) {
@@ -20,7 +47,8 @@ class ProductsModel {
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("i", $MaSP);
         $stmt->execute();
-        return $stmt->get_result();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc();
     }
 
     // Thêm sản phẩm
@@ -46,5 +74,35 @@ class ProductsModel {
         $stmt->bind_param("i", $MaSP);
         return $stmt->execute();
     }
+
+    public function laysptheoloai($Loaisp){
+        $sql = "SELECT * FROM sanpham WHERE Loaisp = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $Loaisp);
+        $stmt->execute();
+        return $stmt->get_result();
+    }
+
+
+    public function countSanpham2($loaiSP) {
+        $sql = "SELECT COUNT(*) AS total FROM sanpham WHERE LoaiSP = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("s", $loaiSP);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        return $row['total'];
+    }
+    
+    public function laySanphamPhanTrang2($loaiSP, $limit, $offset) {
+        $sql = "SELECT * FROM sanpham WHERE LoaiSP = ? LIMIT ? OFFSET ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("sii", $loaiSP, $limit, $offset);
+        $stmt->execute();
+        return $stmt->get_result();
+    }
+    
 }
+
+
 ?>

@@ -82,9 +82,9 @@ if (isset($_SESSION['usernamesql']) && $_SESSION['usernamesql']) {
                             <li><a href="indexok.php?action=hoidap">Hỏi - Đáp</a></li>
                             <li><a href="indexok.php?action=sanpham">Sản Phẩm</a>
                                 <ul class="sp-menu" style="z-index: 999;">
-                                    <li><a href="banhsinhnhat.html">Bánh sinh nhật</a></li>
-                                    <li><a href="banhsinhnhat.html">Bánh nửa Entremet</a></li>
-                                    <li><a href="banhsinhnhat.html">Phụ kiện bánh</a></li>
+                                    <li><a href="indexok.php?action=banhsinhnhat">Bánh sinh nhật</a></li>
+                                    <li><a href="indexok.php?action=banhnuae">Bánh nửa Entremet</a></li>
+                                    <li><a href="indexok.php?action=phukienbanh">Phụ kiện bánh</a></li>
                                 </ul>
                             </li>
                             <li><a href="indexok.php?action=tintuc">Tin Tức</a></li>

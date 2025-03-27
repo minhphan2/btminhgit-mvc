@@ -176,6 +176,8 @@
 
 .contaner-product-section-1{
   display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
   background-color: #F6EFEA;
 }
 
@@ -190,6 +192,7 @@
 }
 
 .product-container {
+  flex: 1 1 calc(33.333% - 20px); /* Tính toán chiều rộng của mỗi sản phẩm */
   background-color: #F6F6F6;
   display: inline-block;
   transition: 0.5s;
@@ -222,4 +225,8 @@
   height: auto;
   display: block;
   margin-top: 10px; /* Thêm khoảng cách giữa ảnh và chữ */
+}
+
+.hidden {
+  display: none;
 }

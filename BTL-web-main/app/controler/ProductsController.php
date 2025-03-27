@@ -11,18 +11,55 @@ class ProductsController {
         $this->productsModel = new ProductsModel($conn);
     }
 
-    public function index() {
-        return $this->productsModel->laySanpham(); 
+    public function index($loaisp = null) {
+        return $this->productsModel->laySanpham($loaisp);
+    }
+    
+    
+    public function show($MaSP) {
+        return $this->productsModel->laySanphamTheoID($MaSP);
     }
 
-    public function show() {
-        if (isset($_GET['id']) && is_numeric($_GET['id'])) {
-            $id = intval($_GET['id']);
-            $product = $this->productsModel->laySanphamTheoID($id);
-            include __DIR__ . "/../view/chitietsanpham.php";
-        } else {
-            echo "Không tìm thấy sản phẩm!";
+    public function laySanphamTheoLoai($loaiSP) {
+        return $this->productsModel->laysptheoloai($loaiSP);
+    }
+
+
+public function fetchSanpham($loaiSP, $page, $limit) {
+    $offset = ($page - 1) * $limit;
+    $totalProducts = $this->productsModel->countSanpham($loaiSP);
+    $totalPages = ceil($totalProducts / $limit);
+    $products = $this->productsModel->laySanphamPhanTrang($loaiSP, $limit, $offset);
+
+    $html = '';
+    if ($products->num_rows > 0) {
+        while ($row = $products->fetch_assoc()) {
+            $html .= "
+                <div class='product-container'>
+                    <a href='indexok.php?action=hienchitiet&id={$row['MaSP']}'>
+                        <img src='./images/banhsinhnhat/{$row['HinhAnh']}' alt='{$row['TenSP']}'>
+                        <p class='product-name'>{$row['TenSP']}</p>
+                        <p class='price'>{$row['MoTa']}<br>" . number_format($row['Gia'], 0, ',', '.') . " ₫</p>
+                    </a>
+                </div>
+            ";
+        }
+    } else {
+        $html = '<p>Không có sản phẩm nào.</p>';
+    }
+
+    $pagination = '';
+    if ($totalPages > 1) {
+        for ($i = 1; $i <= $totalPages; $i++) {
+            $active = ($i == $page) ? 'active' : '';
+            $pagination .= "<li><a href='#' class='$active' data-page='$i'>$i</a></li>";
         }
     }
+
+    return [
+        'html' => $html,
+        'pagination' => $pagination
+    ];
+}
 }
 ?>
