@@ -19,11 +19,11 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <!-- Slick JS -->
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
-        <link rel="stylesheet" href="./public/css/header.css">
-        <link rel="stylesheet" href="./public/css/dichvu.css">
-        <link rel="stylesheet" href="./public/css/footer.css">
-        <link rel="stylesheet" href="./public/css/root.css">
-        <link rel="stylesheet" href="./public/css/hoidap.css">
+        <link rel="stylesheet" href="../public/css/header.css">
+        <link rel="stylesheet" href="../public/css/dichvu.css">
+        <link rel="stylesheet" href="../public/css/footer.css">
+        <link rel="stylesheet" href="../public/css/root.css">
+        <link rel="stylesheet" href="../public/css/hoidap.css">
         <!-- link font logo -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./images/logo_cake_1-removebg-preview.png" type = "image/x-icon"> <!--FAVICON-->
     <title>Giỏ hàng của bạn</title>
-    <link rel="stylesheet" href="./public/css/root.css">
-    <link rel="stylesheet" href="./public/css/styles.css">
-    <link rel="stylesheet" href="./public/css/footer.css">
+    <link rel="stylesheet" href="../public/css/root.css">
+    <link rel="stylesheet" href="../public/css/styles.css">
+    <link rel="stylesheet" href="../public/css/footer.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://kit.fontawesome.com/d69fb28507.js" crossorigin="anonymous"></script>
-    <link href="./public/css/output.css" rel="stylesheet">
-    <link href="./public/css/input.css" rel="stylesheet">
+    <link href="../public/css/output.css" rel="stylesheet">
+    <link href="../public/css/input.css" rel="stylesheet">
     <!-- link font logo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

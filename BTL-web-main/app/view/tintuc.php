@@ -9,12 +9,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./public/css/root.css">
-    <link rel="stylesheet" href="./public/css/doingu.css">
-    <link rel="stylesheet" href="./public/css/tintuc.css">
-    <link rel="stylesheet" href="./public/css/header.css">
-    <link rel="stylesheet" href="./public/css/footer.css">
-    <link rel="stylesheet" href="./public/css/bookmark&brand.css">
+    <link rel="stylesheet" href="../public/css/root.css">
+    <link rel="stylesheet" href="../public/css/doingu.css">
+    <link rel="stylesheet" href="../public/css/tintuc.css">
+    <link rel="stylesheet" href="../public/css/header.css">
+    <link rel="stylesheet" href="../public/css/footer.css">
+    <link rel="stylesheet" href="../public/css/bookmark&brand.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
   
     <!-- -------------------------------- ICON --------------------------------- -->

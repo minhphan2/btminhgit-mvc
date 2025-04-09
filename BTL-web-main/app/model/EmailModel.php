@@ -1,7 +1,7 @@
 <?php
-require './Mailer/PHPMailer-master/src/PHPMailer.php';
-require './Mailer/PHPMailer-master/src/SMTP.php';
-require './Mailer/PHPMailer-master/src/Exception.php';
+require '../Mailer/PHPMailer-master/src/PHPMailer.php';
+require '../Mailer/PHPMailer-master/src/SMTP.php';
+require '../Mailer/PHPMailer-master/src/Exception.php';
 
 class EmailModel{
     public function goimail($to)

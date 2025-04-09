@@ -6,7 +6,6 @@ class ProductsModel {
         $this->conn = $conn;
     }
 
-    // Lấy tất cả sản phẩm
     public function laySanpham($loaisp = null) {
         if ($loaisp) {
             $sql = "SELECT * FROM `sanpham` WHERE `LoaiSP` = ?";

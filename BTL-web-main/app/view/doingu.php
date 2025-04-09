@@ -6,11 +6,11 @@
     <link rel="icon" href="./images/logo_cake_1-removebg-preview.png" type = "image/x-icon"> <!--FAVICON-->
     <title>Đội ngũ</title>
     <!-- --------------------------------- CSS --------------------------------- -->
-    <link rel="stylesheet" href="./public/css/root.css">
-    <link rel="stylesheet" href="./public/css/doingu.css">
-    <link rel="stylesheet" href="./public/css/header.css">
-    <link rel="stylesheet" href="./public/css/footer.css">
-    <link rel="stylesheet" href="./public/css/bookmark&brand.css">
+    <link rel="stylesheet" href="../public/css/root.css">
+    <link rel="stylesheet" href="../public/css/doingu.css">
+    <link rel="stylesheet" href="../public/css/header.css">
+    <link rel="stylesheet" href="../public/css/footer.css">
+    <link rel="stylesheet" href="../public/css/bookmark&brand.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">

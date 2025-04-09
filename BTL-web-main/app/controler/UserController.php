@@ -1,5 +1,5 @@
 <?php
-include_once "./model/UserModel.php";
+include_once "../model/UserModel.php";
 
 class UserController {
     private $conn;

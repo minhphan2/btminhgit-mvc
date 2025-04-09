@@ -1,17 +1,17 @@
 <?php
 ob_start();
 session_start();
-include "../Connect/connection.php";
+include "../../config/connection.php";
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang chủ</title>
-    <link rel="icon" href="./public/images/logo.png" type = "image/x-icon"> <!--FAVICON-->
+    <link rel="icon" href="../public/images/logo.png" type = "image/x-icon"> <!--FAVICON-->
     <link rel="stylesheet" href="BTL-web-main\css\root.css">
     <link rel="stylesheet" href="BTL-web-main\css\header.css">
-    <link rel="stylesheet" href="./public/css/header.css">
+    <link rel="stylesheet" href="../public/css/header.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,9 +52,9 @@ if (isset($_SESSION['usernamesql']) && $_SESSION['usernamesql']) {
     // Dùng giá trị trong session
     $userDisplayName = htmlspecialchars($_SESSION['usernamesql']);
     echo '<a href="profile.php" class="contact">' . $userDisplayName . '</a>';
-    echo '<a href="controler/dangxuat.php">  Đăng xuất</a>';
+    echo '<a href="../controler/dangxuat.php">  Đăng xuất</a>';
 } else {
-    echo '<a href="indexok.php?action=login" class="contact">Đăng nhập</a>';
+    echo '<a href="index.php?action=login" class="contact">Đăng nhập</a>';
 }
 ?>
 
@@ -62,7 +62,7 @@ if (isset($_SESSION['usernamesql']) && $_SESSION['usernamesql']) {
 
                         </li>
                         <li id="cart"><svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#303030" d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
-                        <a href="indexok.php?action=giohang"  class="contact">Giỏ hàng</a>
+                        <a href="index.php?action=giohang"  class="contact">Giỏ hàng</a>
                         </li>
                     </ul>
                 </div>       
@@ -70,26 +70,26 @@ if (isset($_SESSION['usernamesql']) && $_SESSION['usernamesql']) {
             <div id="main-header">
                 <div class="main-header-container">
                     <ul id="main-menu-1">
-                        <li><a href="index.html"><img src="./public/images/logo cake 1.png" alt="logo"></a></li>
+                        <li><a href="index.html"><img src="../public/images/logo cake 1.png" alt="logo"></a></li>
                         <li><a href="index.html" class="bakery-name">VTQ Bakery</a></li> <!-- Thêm class cho tên cửa hàng -->
                     </ul>
                         
                         
                     
                         <ul id="main-menu">
-                            <li><a href="indexok.php?action=home">Trang Chủ</a></li>
-                            <li><a href="indexok.php?action=gioithieu">Giới thiệu</a></li>
-                            <li><a href="indexok.php?action=hoidap">Hỏi - Đáp</a></li>
-                            <li><a href="indexok.php?action=sanpham">Sản Phẩm</a>
+                            <li><a href="index.php?action=home">Trang Chủ</a></li>
+                            <li><a href="index.php?action=gioithieu">Giới thiệu</a></li>
+                            <li><a href="index.php?action=hoidap">Hỏi - Đáp</a></li>
+                            <li><a href="index.php?action=sanpham">Sản Phẩm</a>
                                 <ul class="sp-menu" style="z-index: 999;">
-                                    <li><a href="indexok.php?action=banhsinhnhat">Bánh sinh nhật</a></li>
-                                    <li><a href="indexok.php?action=banhnuae">Bánh nửa Entremet</a></li>
-                                    <li><a href="indexok.php?action=phukienbanh">Phụ kiện bánh</a></li>
+                                    <li><a href="index.php?action=banhsinhnhat">Bánh sinh nhật</a></li>
+                                    <li><a href="index.php?action=banhnuae">Bánh nửa Entremet</a></li>
+                                    <li><a href="index.php?action=phukienbanh">Phụ kiện bánh</a></li>
                                 </ul>
                             </li>
-                            <li><a href="indexok.php?action=tintuc">Tin Tức</a></li>
-                            <li><a href="indexok.php?action=doingu">Đội Ngũ</a></li>
-                            <li><a href="indexok.php?action=lienhe">Liên Hệ</a></li>
+                            <li><a href="index.php?action=tintuc">Tin Tức</a></li>
+                            <li><a href="index.php?action=doingu">Đội Ngũ</a></li>
+                            <li><a href="index.php?action=lienhe">Liên Hệ</a></li>
                         </ul>
         
                         <label for="nav-mobile-input" class="navbar-button">
