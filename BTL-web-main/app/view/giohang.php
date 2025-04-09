@@ -191,7 +191,7 @@ document.getElementById('emailForm').addEventListener('submit', function(event) 
     var email = document.getElementById('email').value;
 
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'indexok.php?action=sendEmail', true);
+    xhr.open('POST', 'index.php?action=sendEmail', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
     xhr.onreadystatechange = function() {

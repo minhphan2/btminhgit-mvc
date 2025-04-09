@@ -1,5 +1,6 @@
 <?php
-require_once "/xampp/htdocs/btminhgit-mvc/BTL-web-main/Connect/connection.php";
+require_once "/xampp/htdocs/btminhgit-mvc/BTL-web-main/config/connection.php";
+
 require_once "/xampp/htdocs/btminhgit-mvc/BTL-web-main/app/model/ProductsModel.php";
 
 // Lấy ID sản phẩm từ URL
@@ -14,9 +15,9 @@ $product = $productsModel->laySanphamTheoID($_GET['id']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi tiết sản phẩm - <?php echo htmlspecialchars($product['TenSP']); ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./public/css/header.css">
-    <link rel="stylesheet" href="./public/css/footer.css">
-    <link rel="stylesheet" href="./public/css/chitietsanpham.css">
+    <link rel="stylesheet" href="../public/css/header.css">
+    <link rel="stylesheet" href="../public/css/footer.css">
+    <link rel="stylesheet" href="../public/css/chitietsanpham.css">
     <link rel="icon" href="images/logo_cake_1-removebg-preview.png" type="image/x-icon">
 </head>
 <body>

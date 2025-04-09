@@ -1,5 +1,5 @@
 <?php
-require_once "/xampp/htdocs/btminhgit-mvc/BTL-web-main/Connect/connection.php";
+require_once "/xampp/htdocs/btminhgit-mvc/BTL-web-main/config/connection.php";
 require_once "/xampp/htdocs/btminhgit-mvc/BTL-web-main/app/model/ProductsModel.php";
 
 // Khởi tạo ProductsModel
@@ -18,10 +18,10 @@ $result_pkb = $productsModel->laySanpham('PKB');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sản phẩm</title>
     <link rel="icon" href="images/logo_cake_1-removebg-preview.png" type="image/x-icon"> <!--FAVICON-->
-    <link rel="stylesheet" href="./public/css/sanpham.css">
-    <link rel="stylesheet" href="./public/css/footer.css">
-    <link rel="stylesheet" href="./public/css/header.css">
-    <link rel="stylesheet" href="./public/css/root.css">
+    <link rel="stylesheet" href="../public/css/sanpham.css">
+    <link rel="stylesheet" href="../public/css/footer.css">
+    <link rel="stylesheet" href="../public/css/header.css">
+    <link rel="stylesheet" href="../public/css/root.css">
     <!-- link font logo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

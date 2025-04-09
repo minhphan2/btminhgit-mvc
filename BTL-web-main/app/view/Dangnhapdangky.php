@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="./images/logo_cake_1-removebg-preview.png" type = "image/x-icon"> <!--FAVICON-->
         <title>Đăng nhập</title>
-        <link rel="stylesheet" href="./public/css/root.css">
+        <link rel="stylesheet" href="../public/css/root.css">
         <link rel="stylesheet" href="./public/css/header.css">
         <link rel="stylesheet" href="./public/css/dangnhap.css">
 
@@ -42,7 +42,7 @@
         <div class="body">
         <div class="container" id="container">
             <div class="form-container register-container">
-            <form action="indexok.php?action=register" method="POST">
+            <form action="index.php?action=register" method="POST">
                 <h1>Đăng kí </h1>
                 <?php if (!empty($success_message)) : ?>
         <p style="color: green;"><?php echo $success_message; ?></p>
@@ -71,7 +71,7 @@
 
 
         <div class="form-container login-container">
-            <form action="indexok.php?action=login" method="POST">
+            <form action="index.php?action=login" method="POST">
                 <h1>Đăng nhập </h1>
                         <?php if (!empty($error_message)) : ?>
                 <p style="color: red; font-weight: bold;"><?php echo $error_message; ?></p>

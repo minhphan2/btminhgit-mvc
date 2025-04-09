@@ -23,7 +23,7 @@ class UserController {
                 if ($user) {
                     session_start();
                     $_SESSION['usernamesql'] = $user['username'];
-                    header("Location: ./indexok.php");
+                    header("Location: ./index.php");
                     exit();
                 } else {
                     $error_message = "Sai tài khoản hoặc mật khẩu!";

@@ -1,5 +1,5 @@
 <?php
-require_once '/xampp/htdocs/btminhgit-mvc/BTL-web-main/Connect/connection.php';
+require_once '/xampp/htdocs/btminhgit-mvc/BTL-web-main/config/connection.php';
 require_once '/xampp/htdocs/btminhgit-mvc/BTL-web-main/app/model/ProductsModel.php';
 require_once '/xampp/htdocs/btminhgit-mvc/BTL-web-main/app/controler/ProductsController.php';
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
-require_once "/xampp/htdocs/btminhgit-mvc/BTL-web-main/Connect/connection.php";
+require_once "/xampp/htdocs/btminhgit-mvc/BTL-web-main/config/connection.php";
+
 require_once "/xampp/htdocs/btminhgit-mvc/BTL-web-main/app/model/ProductsModel.php";
 $productsModel = new ProductsModel($conn);
 
@@ -21,11 +22,11 @@ $result = $productsModel->laySanphamPhanTrang('PKB', $limit, $offset);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bánh sinh nhật</title>
     <link rel="icon" href="images/logo_cake_1-removebg-preview.png" type="image/x-icon"> <!--FAVICON-->
-    <link rel="stylesheet" href="./public/css/banhsinhnhat.css">
-    <link rel="stylesheet" href="./public/css/header.css">
-    <link rel="stylesheet" href="./public/css/footer.css">
-    <link rel="stylesheet" href="./public/css/root.css">
-    <link rel="stylesheet" href="./public/css/sanpham.css">
+    <link rel="stylesheet" href="../public/css/banhsinhnhat.css">
+    <link rel="stylesheet" href="../public/css/header.css">
+    <link rel="stylesheet" href="../public/css/footer.css">
+    <link rel="stylesheet" href="../public/css/root.css">
+    <link rel="stylesheet" href="../public/css/sanpham.css">
     <!-- link font logo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -71,7 +72,7 @@ $result = $productsModel->laySanphamPhanTrang('PKB', $limit, $offset);
             <?php if ($result->num_rows > 0): ?>
                 <?php while ($row = $result->fetch_assoc()): ?>
                     <div class='product-container'>
-                        <a href='indexok.php?action=hienchitiet&id=<?php echo $row['MaSP']; ?>'>
+                        <a href='index.php?action=hienchitiet&id=<?php echo $row['MaSP']; ?>'>
                             <p class='product-name'><?php echo $row['TenSP']; ?></p>
                             <p class='price'><?php echo $row['MoTa']; ?><br><?php echo number_format($row['Gia'], 0, ',', '.'); ?> ₫</p>
                             <img src='./images/banhsinhnhat/<?php echo $row['HinhAnh']; ?>' alt=''>
